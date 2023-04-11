@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { Alumno } from 'src/app/models';
+import { ConfirmationDialogComponent } from '../dialog/confirmation-dialog/confirmation-dialog.component';
+import { AddNewStudentDialogComponent } from '../dialog/add-new-student-dialog/add-new-student-dialog.component';
 
 @Component({
   selector: 'app-table',
@@ -32,5 +34,23 @@ export class TableComponent {
   onDelete(alumno:Alumno): void {
     this.alumnos.splice(this.alumnos.indexOf(alumno), 1);
     this.dataSource = new MatTableDataSource(this.alumnos);
+  }
+
+  constructor(private matDialog: MatDialog) {}
+
+  openAddStudentDialog(){
+    const dialog = this.matDialog.open(AddNewStudentDialogComponent)
+  }
+
+  openConfirmationDialog(alumno:Alumno): void{
+    const dialog = this.matDialog.open(ConfirmationDialogComponent, {
+      data: alumno
+    })
+
+    dialog.afterClosed().subscribe((response) =>{
+      if(response == 1){
+        this.onDelete(alumno);
+      }
+    })
   }
 }

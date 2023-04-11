@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 mat-dialog-title>Agregar nuevo alumno</h1>
+    <div mat-dialog-content class="mat-typography">
+       <app-add-student-form/>
+    </div>
+    <div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="1" cdkFocusInitial >Agregar</button>
+    </div>
+</div>

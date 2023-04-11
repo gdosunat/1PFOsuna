@@ -1,3 +1,10 @@
+<div class="mb-3 agregar-btn">
+  <button color="primary" mat-flat-button (click)="openAddStudentDialog()">
+    <mat-icon>add</mat-icon>
+    Nuevo Alumno
+  </button>
+</div>
+
 <mat-form-field class="w-full">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Juan" #input>
@@ -41,9 +48,9 @@
       <button mat-icon-button color="primary">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" (click)="onDelete(alumno)">
+      <button mat-icon-button color="warn" (click)="openConfirmationDialog(alumno)">
         <mat-icon>delete</mat-icon>
-      </button>
+    </button>
     </td>
   </ng-container>
 
@@ -53,5 +60,4 @@
   <tr class="mat-row" *matNoDataRow>
     <td class="mat-cell" colspan="4">No hay coincidencias con: "{{input.value}}"</td>
   </tr>
-
 </table>

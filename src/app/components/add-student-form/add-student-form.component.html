@@ -1,0 +1,39 @@
+<form [formGroup]="registerForm">
+    <div class="col-12 mb-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput required [formControl]="nombreControl">
+            <mat-hint>El nombre de tener como minimo 5 caracteres</mat-hint>
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-12 mb-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input matInput required [formControl]="apellidoControl">
+            <mat-hint>El apellido de tener como minimo 4 caracteres</mat-hint>
+            <mat-error ></mat-error>
+    </mat-form-field>
+    </div>
+    <div class="col-12 mb-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput required [formControl]="fechaNacimientoControl">
+            <mat-error ></mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-12 mb-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Sexo</mat-label>
+            <input matInput required [formControl]="sexoControl">
+            <mat-error ></mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-12 mb-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput required [formControl]="emailControl">
+            <mat-error ></mat-error>
+        </mat-form-field>
+    </div>
+</form>

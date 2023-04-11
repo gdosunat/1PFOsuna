@@ -8,13 +8,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ListComponent } from './list/list.component';
 import { TableComponent } from './table/table.component';
 import { DialogComponent } from './dialog/dialog.component';
-import { ConfirmationDialogComponent } from './dialog/dialogVariants/confirmation-dialog/confirmation-dialog.component';
-import { DialogModule } from '@angular/cdk/dialog';
+import { ConfirmationDialogComponent } from './dialog/confirmation-dialog/confirmation-dialog.component';
+import { AddNewStudentDialogComponent } from './dialog/add-new-student-dialog/add-new-student-dialog.component';
+import { AddStudentFormComponent } from './add-student-form/add-student-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +25,11 @@ import { DialogModule } from '@angular/cdk/dialog';
   declarations: [
     ToolbarComponent,
     ListComponent,
-    TableComponent
+    TableComponent,
+    DialogComponent,
+    ConfirmationDialogComponent,
+    AddNewStudentDialogComponent,
+    AddStudentFormComponent
   ],
   imports: [
     CommonModule,
@@ -33,13 +40,14 @@ import { DialogModule } from '@angular/cdk/dialog';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    DialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListComponent,
     ToolbarComponent,
     TableComponent,
-    DialogModule
+    DialogComponent
   ]
 })
 export class ComponentsModule {
