@@ -4,8 +4,8 @@ export class Alumno {
     public id: number,
     public nombre: string,
     public apellido: string,
-    public fechaNacimiento: Date,
     public sexo: "Femenino" | "Masculino",
-    public email: string
+    public email: string,
+    public pais: string
     ){}
 }

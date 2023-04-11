@@ -14,12 +14,12 @@ export class DialogComponent {
     private dialogService: MatDialog
   ){}
 
-  @Input("alumno") alumno: Alumno = new Alumno(0, "","",new Date(),"Femenino","");
+  @Input("alumno") alumno: Alumno = new Alumno(0, "","","Femenino","", "");
   @Output() deleteStudent = new EventEmitter<Alumno>();
   openConfirmationDialog(): void{
     let dialogRef = this.dialogService.open(ConfirmationDialogComponent, {
       data: this.alumno
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

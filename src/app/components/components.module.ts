@@ -8,7 +8,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ListComponent } from './list/list.component';
@@ -18,6 +19,8 @@ import { ConfirmationDialogComponent } from './dialog/confirmation-dialog/confir
 import { AddNewStudentDialogComponent } from './dialog/add-new-student-dialog/add-new-student-dialog.component';
 import { AddStudentFormComponent } from './add-student-form/add-student-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PipesModule } from '../shared/pipes/pipes.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -29,7 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DialogComponent,
     ConfirmationDialogComponent,
     AddNewStudentDialogComponent,
-    AddStudentFormComponent
+    AddStudentFormComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonToggleModule,
+    SharedModule
   ],
   exports: [
     ListComponent,

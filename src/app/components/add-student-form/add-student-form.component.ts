@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,25 +7,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-student-form.component.scss']
 })
 export class AddStudentFormComponent {
+  @Output() values = new EventEmitter<string>();
+
   nombreControl = new FormControl('', [Validators.required, Validators.minLength(5)])
   apellidoControl = new FormControl('', [Validators.required, Validators.minLength(4)])
-  fechaNacimientoControl = new FormControl('', [Validators.required])
-  sexoControl = new FormControl('', [Validators.required])
-  emailControl = new FormControl('', [Validators.required, Validators.email])
+  sexoControl = new FormControl('Femenino', [Validators.required])
+  emailControl = new FormControl('', [Validators.email])
+  paisControl = new FormControl('', [Validators.required])
 
   registerForm = new FormGroup({
     nombre: this.nombreControl,
     apellido: this.apellidoControl,
-    fechaNacimiento: this.fechaNacimientoControl,
     sexo: this.sexoControl,
     email: this.emailControl
   })
 
   onSubmit(): void {
-    if(this.registerForm.valid){
-      console.log("Enviar form!")
+    if(this.registerForm.valid && this.nombreControl.value != "" && this.apellidoControl.value != "" && this.sexoControl.value != "" && this.emailControl.value != "")
+    {
+      alert("enviar!")
     } else {
-      console.log("Formuilario no valido")
+      alert("whops! Errores")
     }
   }
 }
