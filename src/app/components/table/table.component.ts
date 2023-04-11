@@ -38,8 +38,14 @@ export class TableComponent {
 
   constructor(private matDialog: MatDialog) {}
 
+  alumno: Alumno = new Alumno(this.alumnos.length + 1, "", "", "Femenino", "", "")
+
   openAddStudentDialog(){
     const dialog = this.matDialog.open(AddNewStudentDialogComponent)
+
+    dialog.afterClosed().subscribe((response) => {
+
+    });
   }
 
   openConfirmationDialog(alumno:Alumno): void{
@@ -51,6 +57,16 @@ export class TableComponent {
       if(response == 1){
         this.onDelete(alumno);
       }
+    });
+  }
+
+  openEditStudentDialog(alumno:Alumno){
+    const dialog = this.matDialog.open(AddNewStudentDialogComponent, {
+      data: alumno
     })
+
+    dialog.afterClosed().subscribe((response) => {
+
+    });
   }
 }

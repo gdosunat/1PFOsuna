@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { ComponentsModule } from '../components/components.module';
 import { DialogModule } from '@angular/cdk/dialog';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -22,7 +23,8 @@ import { DialogModule } from '@angular/cdk/dialog';
     ComponentsModule,
     MatButtonModule,
     MatDialogModule,
-    DialogModule
+    DialogModule,
+    SharedModule
   ],
   exports: [
     AlumnosComponent

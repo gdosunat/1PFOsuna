@@ -1,4 +1,4 @@
-<mat-drawer-container class="container" autosize>
+<mat-drawer-container autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
     <div class="header-container">
       <p class="title">Menu principal</p>
@@ -8,7 +8,7 @@
   <div class="sidenav-content">
     <app-toolbar (sidebarToggle)="drawer.toggle()"/>
     <div class="col-8 col-offset-2 mt-4">
-      <h1>Alumnos</h1>
+      <h1 appFontSize>Alumnos</h1>
       <app-table/>
     </div>
   </div>

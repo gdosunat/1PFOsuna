@@ -17,9 +17,7 @@ import { TableComponent } from './table/table.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ConfirmationDialogComponent } from './dialog/confirmation-dialog/confirmation-dialog.component';
 import { AddNewStudentDialogComponent } from './dialog/add-new-student-dialog/add-new-student-dialog.component';
-import { AddStudentFormComponent } from './add-student-form/add-student-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PipesModule } from '../shared/pipes/pipes.module';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -31,8 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     TableComponent,
     DialogComponent,
     ConfirmationDialogComponent,
-    AddNewStudentDialogComponent,
-    AddStudentFormComponent,
+    AddNewStudentDialogComponent
   ],
   imports: [
     CommonModule,

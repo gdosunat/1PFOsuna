@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ControlErroresPipe implements PipeTransform {
 
   transform(error: any, ...args: unknown[]): unknown {
-    console.log(error.key)
-
     const opciones: Record<string, string> = {
       required: 'Este campo es obligatorio',
       minlength: `Este campo debe tener al menos ${error.value.requiredLength} caracteres`,
