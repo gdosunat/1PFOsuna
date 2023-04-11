@@ -37,6 +37,6 @@
 </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button cdkFocusInitial [mat-dialog-close]="1">Guardar</button>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="submitForm()">Guardar</button>
 </mat-dialog-actions>

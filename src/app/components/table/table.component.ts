@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { Alumno } from 'src/app/models';
@@ -36,7 +36,7 @@ export class TableComponent {
     this.dataSource = new MatTableDataSource(this.alumnos);
   }
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog, private changeDetectorRef: ChangeDetectorRef) {}
 
   alumno: Alumno = new Alumno(this.alumnos.length + 1, "", "", "Femenino", "", "")
 
@@ -44,7 +44,7 @@ export class TableComponent {
     const dialog = this.matDialog.open(AddNewStudentDialogComponent)
 
     dialog.afterClosed().subscribe((response) => {
-
+      this.onAdd(response);
     });
   }
 
@@ -53,6 +53,7 @@ export class TableComponent {
       data: alumno
     })
 
+    dialog.disableClose = true;
     dialog.afterClosed().subscribe((response) =>{
       if(response == 1){
         this.onDelete(alumno);
@@ -66,7 +67,29 @@ export class TableComponent {
     })
 
     dialog.afterClosed().subscribe((response) => {
-
+      this.onModify(response);
     });
   }
+
+  onAdd(alumno: Alumno) {
+    if(alumno.nombre || alumno.apellido || alumno.email || alumno.pais || alumno.sexo){
+      alumno= {
+        ...alumno,
+          id: this.alumnos[this.alumnos.length -1].id + 1,
+      }
+
+      this.alumnos.push(alumno);
+      this.dataSource = new MatTableDataSource(this.alumnos);
+    }
+  }
+
+  onModify(alumno: Alumno){
+    const index = this.alumnos.findIndex(al => {
+      return al.id === alumno.id
+    })
+    this.alumnos[index] = alumno;
+    
+    this.dataSource = new MatTableDataSource(this.alumnos);
+  }
+
 }

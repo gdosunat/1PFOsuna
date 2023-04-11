@@ -19,6 +19,7 @@ import { ConfirmationDialogComponent } from './dialog/confirmation-dialog/confir
 import { AddNewStudentDialogComponent } from './dialog/add-new-student-dialog/add-new-student-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ErrorDialogComponent } from './dialog/error-dialog/error-dialog.component';
 
 
 
@@ -29,7 +30,8 @@ import { SharedModule } from '../shared/shared.module';
     TableComponent,
     DialogComponent,
     ConfirmationDialogComponent,
-    AddNewStudentDialogComponent
+    AddNewStudentDialogComponent,
+    ErrorDialogComponent
   ],
   imports: [
     CommonModule,
